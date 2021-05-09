@@ -1,56 +1,43 @@
-/// <reference types="cypress" />
+import { init, finish } from '../../utils/base';
 
-context('Navigation', () => {
-  beforeEach(() => {
-    cy.visit('https://example.cypress.io')
-    cy.get('.navbar-nav').contains('Commands').click()
-    cy.get('.dropdown-menu').contains('Navigation').click()
+context('Scen 1', () => {
+  before(() => {
+    init();
+  });
+
+  it('Crear post', () => {
+    cy.get('a').contains('Posts').click();
+    cy.wait(500);
+    cy.get('a').contains('New post').click();
+    cy.wait(500);
+
+    cy.get('textarea').then($textarea => {
+      if ($textarea.length > 0) {
+        var randomInput = $textarea.get(0);
+        if(!Cypress.dom.isHidden(randomInput)) {
+          cy.wrap(randomInput).focus().clear();
+          cy.wrap(randomInput).type('Titulo')
+        }
+        cy.wait(500);
+      }
+    });
+
+    cy.get('article').find('[contenteditable]').type('Descripcion');
+    cy.wait(5000);
   })
 
-  it('cy.go() - go back or forward in the browser\'s history', () => {
-    // https://on.cypress.io/go
+  it('Publicar post', () => {
+    cy.get('span').contains('Publish').click();
+    cy.wait(500);
+    cy.get('span').contains('Publish').click();
+    cy.wait(500);
 
-    cy.location('pathname').should('include', 'navigation')
-
-    cy.go('back')
-    cy.location('pathname').should('not.include', 'navigation')
-
-    cy.go('forward')
-    cy.location('pathname').should('include', 'navigation')
-
-    // clicking back
-    cy.go(-1)
-    cy.location('pathname').should('not.include', 'navigation')
-
-    // clicking forward
-    cy.go(1)
-    cy.location('pathname').should('include', 'navigation')
   })
 
-  it('cy.reload() - reload the page', () => {
-    // https://on.cypress.io/reload
-    cy.reload()
-
-    // reload the page without using the cache
-    cy.reload(true)
+  after(() => {
+    finish();
   })
 
-  it('cy.visit() - visit a remote url', () => {
-    // https://on.cypress.io/visit
 
-    // Visit any sub-domain of your current domain
-
-    // Pass options to the visit
-    cy.visit('https://example.cypress.io/commands/navigation', {
-      timeout: 50000, // increase total time for the visit to resolve
-      onBeforeLoad (contentWindow) {
-        // contentWindow is the remote page's window object
-        expect(typeof contentWindow === 'object').to.be.true
-      },
-      onLoad (contentWindow) {
-        // contentWindow is the remote page's window object
-        expect(typeof contentWindow === 'object').to.be.true
-      },
-    })
-    })
+  // Login + Crear post + publicarlo + logout + validar post (localhost:2369/ producción)
 })

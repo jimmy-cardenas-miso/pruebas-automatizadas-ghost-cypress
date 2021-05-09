@@ -4,9 +4,17 @@
   <img src="https://cloud.githubusercontent.com/assets/1268976/20607953/d7ae489c-b24a-11e6-9cc4-91c6c74c5e88.png"/>
 </p>
 
+<p align="center">
+    <a href="https://github.com/TryGhost/Ghost/releases/3.3.0">
+        <img src="https://img.shields.io/static/v1?label=cypress&message=3.3.0&color=green" alt="Downloads" />
+    </a>
+</p>
 ## Installing
 
 [![npm version](https://badge.fury.io/js/cypress.svg)](https://badge.fury.io/js/cypress)
+<a href="https://nodejs.org/en/">
+    <img src="https://img.shields.io/static/v1?label=node&message=12.16.1&color=green" alt="Downloads" />
+</a>
 
 Install for Mac, Linux, or Windows
 
@@ -15,10 +23,23 @@ npm install
 ```
 
 ## Run
-Open terminal in root project folder and execute
+1. Deploy ghost and update url, email and password in `./cypress.json`
+```bash
+{
+    "base_url": "YOUR_GHOST_URL",
+    "auth": {
+      "email": "YOUR_EMAIL",
+      "password": "YOUR_PASSWORD"
+    }
+}
+```
+
+2. Open terminal in root project folder and execute
 ```bash
 ./node_modules/.bin/cypress open
 ```
+
+3. Run any tests clicking scens
 
 ## Tests
 
@@ -36,7 +57,7 @@ Open terminal in root project folder and execute
 | Escenario 10 | Login + Entrar a page + des-asignar TAG+ publicarlo + logout + entrar a localhost:2369/“URL” validar la NO asignación del TAG (producción)
 | Escenario 11 | Login + Entrar a page + Cambiar atributo de Post Access + publicarlo + logout + entrar a localhost:2369/“URL” validar su acceso (producción) |
 | Escenario 12 | Login + Entrar a Tags + borrar TAG +  logout + login + entrar a Tags + validar que no existe el TAG eliminado (administración) |
-| Escenario 13 | Login + Entrar a Tags + Editar nombre de TAG + logout + login + entrar a Tags + validar que el nombre del TAG si cambio (administración) |
+| Escenario 13 | Login + Entrar a Tags + Editar nombre de TAG + logout + login + entrar a Tags + validar que el nombre del TAG si cambio(administración)
 | Escenario 14 | Login + Entrar a Tags + Editar description de TAG +  logout + login + entrar a Tags + validar que la descripción del TAG si cambio (administración) |
 | Escenario 15 | Login + Entrar a Staff + Editar nombre del usuario +  logout + login + entrar a Staff + validar que el nombre del Usuario si cambio (administración) |
 | Escenario 16 | Login + Entrar a Members + Crear nuevo miembro +  logout + login + entrar a Members + validar que aumento el numero de miembros en 1 (administración) |
