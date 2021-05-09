@@ -33,6 +33,16 @@ npm install
     }
 }
 ```
+Ejemplo 
+```bash
+{
+    "base_url": "http://localhost:2370/ghost/",
+    "auth": {
+      "email": "prueba@automatizadas.com",
+      "password": "pruebas1234"
+    }
+}
+```
 
 2. Open terminal in root project folder and execute
 ```bash
