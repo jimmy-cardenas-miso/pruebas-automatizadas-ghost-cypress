@@ -1,13 +1,17 @@
-import { login, logout } from "./auth";
-
 export function init() {
-  let url = Cypress.env('base_url') + '#/signin';
+  let url = Cypress.env('base_url') + '/ghost/#/signin';
   cy.visit(url);
   cy.wait(1000);
-  login();
-  cy.wait(2000);
 }
 
-export function finish() {
-  logout();
+export function baseUrl() {
+  let url = Cypress.env('base_url') + '/ghost';
+  cy.visit(url);
+  cy.wait(1000);
+}
+
+export function basePageUrl() {
+  let url = Cypress.env('base_url');
+  cy.visit(url);
+  cy.wait(1000);
 }

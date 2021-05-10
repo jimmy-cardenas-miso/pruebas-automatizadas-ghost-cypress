@@ -1,43 +1,50 @@
-import { init, finish } from '../../utils/base';
+import * as base from '../../utils/base';
+import * as post from '../../utils/post';
+import * as auth from '../../utils/auth';
+import * as faker from 'faker';
 
-context('Scen 1', () => {
+const cookieSessionName = Cypress.env('cookieSessionName') || "ghost-admin-api-session";
+const title = faker.lorem.word();
+const paragraph = faker.lorem.paragraph();
+
+context('Esenario 1', () => {
   before(() => {
-    init();
+    base.init();
+  });
+
+  beforeEach(() => {
+    Cypress.Cookies.preserveOnce(cookieSessionName);
+  });
+
+  it('Iniciar sesión', () => {
+    auth.login();
   });
 
   it('Crear post', () => {
-    cy.get('a').contains('Posts').click();
-    cy.wait(500);
-    cy.get('a').contains('New post').click();
-    cy.wait(500);
+    post.clickPostMenu();
+    post.clickNewPost();
+  });
 
-    cy.get('textarea').then($textarea => {
-      if ($textarea.length > 0) {
-        var randomInput = $textarea.get(0);
-        if(!Cypress.dom.isHidden(randomInput)) {
-          cy.wrap(randomInput).focus().clear();
-          cy.wrap(randomInput).type('Titulo')
-        }
-        cy.wait(500);
-      }
-    });
-
-    cy.get('article').find('[contenteditable]').type('Descripcion');
-    cy.wait(5000);
-  })
+  it('Llenar post', () => {
+    post.addTitle(title);
+    post.clickParagraph();
+    base.baseUrl();
+    post.clickPostMenu();
+    post.getPostWithName(title);
+    post.addParagraph(paragraph);
+  });
 
   it('Publicar post', () => {
-    cy.get('span').contains('Publish').click();
-    cy.wait(500);
-    cy.get('span').contains('Publish').click();
-    cy.wait(500);
-
+    post.publishPost();
+    post.backPostList();
   })
 
-  after(() => {
-    finish();
+  it('Cerrar sesion', () => {
+    auth.logout();
   })
 
-
-  // Login + Crear post + publicarlo + logout + validar post (localhost:2369/ producción)
+  it('Validar post', () => {
+    base.basePageUrl();
+    post.shouldExist(title);
+  })
 })

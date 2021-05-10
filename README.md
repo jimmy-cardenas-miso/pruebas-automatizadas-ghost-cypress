@@ -36,7 +36,7 @@ npm install
 Ejemplo 
 ```bash
 {
-    "base_url": "http://localhost:2370/ghost/",
+    "base_url": "http://localhost:2370",
     "auth": {
       "email": "prueba@automatizadas.com",
       "password": "pruebas1234"
