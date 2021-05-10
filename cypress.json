@@ -1,7 +1,7 @@
 {
   "chromeWebSecurity": false,
   "env": {
-    "base_url": "http://localhost:2372",
+    "base_url": "http://localhost:2373",
     "auth": {
       "email": "pruebas@automatizadas.com",
       "password": "pruebas1234"

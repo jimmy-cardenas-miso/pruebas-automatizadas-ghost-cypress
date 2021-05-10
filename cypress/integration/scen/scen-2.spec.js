@@ -1,13 +1,13 @@
-import * as base from '../../utils/base';
-import * as post from '../../utils/post';
-import * as auth from '../../utils/auth';
+import { Post } from '../../utils/post';
+import { Base } from '../../utils/base';
+import { Auth } from '../../utils/auth';
 
 const cookieSessionName = Cypress.env('cookieSessionName') || "ghost-admin-api-session";
 let postTitle;
 
 context('Esenario 2', () => {
   before(() => {
-    base.init();
+    Base.init();
   });
 
   beforeEach(() => {
@@ -15,26 +15,26 @@ context('Esenario 2', () => {
   });
 
   it('Iniciar sesión', () => {
-    auth.login();
+    Auth.login();
   });
 
   it('Abrir post', () => {
-    post.clickPostMenu();
-    post.getFirstPublishedPostTitle().then(text => postTitle = text);
-    post.openFirstPublishedPost();
+    Post.clickPostMenu();
+    Post.getFirstPublishedPostTitle().then(text => postTitle = text);
+    Post.openFirstPublishedPost();
   });
 
   it('Despublicar post', () => {
-    post.unpublishPost();
-    post.backPostList();
+    Post.unpublishPost();
+    Post.backPostList();
   });
 
   it('Cerrar sesion', () => {
-    auth.logout();
+    Auth.logout();
   })
 
   it('Validar que el post no existe', () => {
-    base.basePageUrl();
-    post.shouldNotExist(postTitle);
+    Base.basePageUrl();
+    Post.shouldNotExist(postTitle);
   })
 })

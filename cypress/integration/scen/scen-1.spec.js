@@ -1,15 +1,15 @@
-import * as base from '../../utils/base';
-import * as post from '../../utils/post';
-import * as auth from '../../utils/auth';
+import { Post } from '../../utils/post';
+import { Base } from '../../utils/base';
+import { Auth } from '../../utils/auth';
 import * as faker from 'faker';
 
 const cookieSessionName = Cypress.env('cookieSessionName') || "ghost-admin-api-session";
-const title = faker.lorem.word();
+const title = faker.name.title();
 const paragraph = faker.lorem.paragraph();
 
 context('Esenario 1', () => {
   before(() => {
-    base.init();
+    Base.init();
   });
 
   beforeEach(() => {
@@ -17,34 +17,34 @@ context('Esenario 1', () => {
   });
 
   it('Iniciar sesión', () => {
-    auth.login();
+    Auth.login();
   });
 
   it('Crear post', () => {
-    post.clickPostMenu();
-    post.clickNewPost();
+    Post.clickPostMenu();
+    Post.clickNewPost();
   });
 
   it('Llenar post', () => {
-    post.addTitle(title);
-    post.clickParagraph();
-    base.baseUrl();
-    post.clickPostMenu();
-    post.getPostWithName(title);
-    post.addParagraph(paragraph);
+    Post.addTitle(title);
+    Post.clickParagraph();
+    Base.baseUrl();
+    Post.clickPostMenu();
+    Post.getPostWithName(title);
+    Post.addParagraph(paragraph);
   });
 
   it('Publicar post', () => {
-    post.publishPost();
-    post.backPostList();
+    Post.publishPost();
+    Post.backPostList();
   })
 
   it('Cerrar sesion', () => {
-    auth.logout();
+    Auth.logout();
   })
 
   it('Validar que el post existe', () => {
-    base.basePageUrl();
-    post.shouldExist(title);
+    Base.basePageUrl();
+    Post.shouldExist(title);
   })
 })
