@@ -7,8 +7,6 @@ const cookieSessionName = Cypress.env('cookieSessionName') || "ghost-admin-api-s
 const title = faker.name.title();
 const paragraph = faker.lorem.paragraph();
 
-// | Escenario 6 | Login + Crear page + configurar “URL” + publicarlo + logout + entrar a localhost:2369/“URL” validar pagina (producción) |
-
 context('Esenario 6', () => {
   before(() => {
     Base.init();
@@ -41,13 +39,12 @@ context('Esenario 6', () => {
     Page.backPageList();
   })
 
-  it('Cerrar sesion', () => {
-    Base.closeNotification();
-    Auth.logout();
+  it('Validar page', () => {
+    Base.openNotification();
   })
 
-  /*it('Validar que el page existe', () => {
-    Base.basePageUrl();
-    Page.shouldExist(title);
-  })*/
+  it('Cerrar sesion', () => {
+    Base.baseUrl();
+    Auth.logout();
+  })
 })
