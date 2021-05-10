@@ -1,4 +1,4 @@
-import { sanitizeText } from "../../utils/utils";
+import { sanitizeText } from '../../utils/utils';
 import { Page } from '../../utils/page';
 import { Base } from '../../utils/base';
 import { Auth } from '../../utils/auth';

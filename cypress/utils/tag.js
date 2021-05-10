@@ -18,5 +18,25 @@ export const Tag = {
 
   shouldExist: (title) => {
     cy.get('.gh-tag-list-name').contains(title).should('contain', title);
-  }
+  },
+
+  shouldNotExist: (title) => {
+    cy.get('.gh-tag-list-name').contains(title).should('not.exist');
+  },
+
+  deleteTag: () => {
+    cy.get('button').contains('Delete tag').first().click({force: true},);
+    cy.wait(500);
+    cy.get('.modal-content .gh-btn-red').first().click({force: true},);
+    cy.wait(500);
+  },
+
+  openFirstTag: () => {
+    cy.get('.gh-tag-list-title').first().click({force: true},);
+    cy.wait(500);
+  },
+
+  openFirstTagName: () => {
+    return cy.get('.gh-tag-list-title').first().invoke('text');
+  },
 }

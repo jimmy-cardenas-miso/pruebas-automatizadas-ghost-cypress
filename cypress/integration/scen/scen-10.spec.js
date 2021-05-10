@@ -5,7 +5,7 @@ import { Auth } from '../../utils/auth';
 
 const cookieSessionName = Cypress.env('cookieSessionName') || "ghost-admin-api-session";
 let pageTitle, url;
-// | Escenario 10 | Login + Entrar a page + des-asignar TAG+ publicarlo + logout + entrar a localhost:2369/“URL” validar la NO asignación del TAG (producción)
+
 context('Esenario 10', () => {
   before(() => {
     Base.init();
