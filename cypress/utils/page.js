@@ -77,6 +77,10 @@ export const Page = {
     cy.get('.page-card-title').contains(title).should('contain', title);
   },
 
+  shouldExistTitle: (title) => {
+    cy.get('.post-full-title').contains(title).should('contain', title);
+  },
+
   shouldExistTag: (title, tag) => {
     cy.get('.page-card-title').contains(title).parent().get('.page-card-primary-tag').first().should('contain', tag);
   },
@@ -86,7 +90,7 @@ export const Page = {
   },
 
   openFirstPublishedPage: () => {
-    cy.get(".gh-page-list-title").get('.gh-content-status-published').contains('Published').first().click({force: true},);
+    cy.get('.gh-content-status-published').contains('Published').first().click({force: true},);
     cy.wait(500);
   },
 

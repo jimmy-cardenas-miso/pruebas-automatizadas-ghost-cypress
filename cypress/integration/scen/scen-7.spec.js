@@ -4,10 +4,9 @@ import { Auth } from '../../utils/auth';
 import * as faker from 'faker';
 
 const cookieSessionName = Cypress.env('cookieSessionName') || "ghost-admin-api-session";
-const title = faker.name.title();
-const paragraph = faker.lorem.paragraph();
+const newTitle = faker.name.title();
 
-context('Esenario 6', () => {
+context('Esenario 7', () => {
   before(() => {
     Base.init();
   });
@@ -20,27 +19,23 @@ context('Esenario 6', () => {
     Auth.login();
   });
 
-  it('Crear page', () => {
+  it('Abrir page', () => {
     Page.clickPageMenu();
-    Page.clickNewPage();
+    Page.openFirstPublishedPage();
   });
 
-  it('Llenar page', () => {
-    Page.addTitle(title);
-    Page.clickParagraph();
-    Base.baseUrl();
-    Page.clickPageMenu();
-    Page.getPageWithName(title);
-    Page.addParagraph(paragraph);
+  it('Editar page', () => {
+    Page.addTitle(newTitle);
   });
 
   it('Publicar page', () => {
-    Page.publishPage();
+    Page.updatePage();
     Page.backPageList();
   });
 
   it('Validar page', () => {
     Base.openNotification();
+    Page.shouldExistTitle(newTitle);
   });
 
   it('Cerrar sesion', () => {
