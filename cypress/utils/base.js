@@ -5,6 +5,11 @@ export const Base = {
     cy.wait(1000);
   },
 
+  closeNotification: () => {
+    cy.get('button').get('.gh-notification-close').first().click();
+    cy.wait(500);
+  },
+
   baseUrl: () => {
     let url = Cypress.env('base_url') + '/ghost';
     cy.visit(url);

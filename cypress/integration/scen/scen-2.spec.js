@@ -30,6 +30,7 @@ context('Esenario 2', () => {
   });
 
   it('Cerrar sesion', () => {
+    Base.closeNotification();
     Auth.logout();
   })
 

@@ -11,8 +11,6 @@ export const Auth = {
   },
 
   logout: () => {
-    cy.get('button').get('.gh-notification-close').first().click();
-    cy.wait(500);
     cy.get('.ember-basic-dropdown-trigger.ember-view').first().click();
     cy.wait(1000);
     cy.get('a').contains('Sign Out').click();
