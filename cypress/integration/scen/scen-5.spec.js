@@ -4,9 +4,9 @@ import { Auth } from '../../utils/auth';
 import { sanitizeText } from '../../utils/utils';
 
 const cookieSessionName = Cypress.env('cookieSessionName') || "ghost-admin-api-session";
-let postTitle;
+let postTitle, postTag;
 
-context('Esenario 2', () => {
+context('Esenario 5', () => {
   before(() => {
     Base.init();
   });
@@ -25,18 +25,25 @@ context('Esenario 2', () => {
     Post.openFirstPublishedPost();
   });
 
-  it('Despublicar post', () => {
-    Post.unpublishPost();
-    Post.backPostList();
+  it('Añadir tag', () => {
+    Post.openSettings();
+    Post.selectFirstTag();
+    Post.getFirstPublishedPostTag().then(text => postTag = sanitizeText(text));
+    Post.closeSettings();
   });
+
+  it('Publicar post', () => {
+    Post.updatePost();
+    Post.backPostList();
+  })
 
   it('Cerrar sesion', () => {
     Base.closeNotification();
     Auth.logout();
   })
 
-  it('Validar que el post no existe', () => {
+  it('Validar que el post tiene el tag', () => {
     Base.basePageUrl();
-    Post.shouldNotExist(postTitle);
+    Post.shouldExistTag(postTitle, postTag);
   })
 })

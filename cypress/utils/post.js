@@ -38,7 +38,7 @@ export const Post = {
     cy.get('span').contains('Update').click();
     cy.wait(500);
     cy.get('span').contains('Update').click();
-    cy.wait(2000);
+    cy.wait(3000);
   },
 
   unpublishPost: () => {
@@ -49,6 +49,25 @@ export const Post = {
     cy.wait(2000);
   },
 
+  openSettings: () => {
+    cy.get('button').get('.post-settings').click();
+    cy.wait(500);
+  },
+
+  closeSettings: () => {
+    cy.get('button').get('.settings-menu-header-action').click();
+    cy.wait(500);
+  },
+
+  selectFirstTag: () => {
+    cy.get('#tag-input').click();
+    cy.wait(500);
+    cy.get('.ember-power-select-option').first().click();
+    cy.wait(500);
+    cy.get('#tag-input').click();
+    cy.wait(500);
+  },
+
   backPostList: () => {
     cy.get('a').get('.blue').click();
     cy.wait(500);
@@ -56,6 +75,10 @@ export const Post = {
 
   shouldExist: (title) => {
     cy.get('.post-card-title').contains(title).should('contain', title);
+  },
+
+  shouldExistTag: (title, tag) => {
+    cy.get('.post-card-title').contains(title).parent().get('.post-card-primary-tag').first().should('contain', tag);
   },
 
   shouldNotExist: (title) => {
@@ -68,6 +91,10 @@ export const Post = {
   },
 
   getFirstPublishedPostTitle: () => {
-    return cy.get(".gh-post-list-title").get('.gh-content-status-published').contains('Published').first().get('.gh-content-entry-title').invoke('text');
+    return cy.get('.gh-content-status-published').contains('Published').first().parent().parent().parent().find('.gh-content-entry-title').invoke('text');
+  },
+
+  getFirstPublishedPostTag: () => {
+    return cy.get('#tag-input .ember-power-select-multiple-option').first().invoke('text');
   }
 }

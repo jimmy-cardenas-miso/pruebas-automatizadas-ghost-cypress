@@ -44,4 +44,8 @@ context('Esenario 4', () => {
     Tag.clickTagsMenu();
     Tag.shouldExist(title);
   })
+
+  it('Cerrar sesion', () => {
+    Auth.logout();
+  })
 })
