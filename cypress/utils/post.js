@@ -33,6 +33,13 @@ export function publishPost() {
   cy.wait(2000);
 }
 
+export function updatePost() {
+  cy.get('span').contains('Update').click();
+  cy.wait(500);
+  cy.get('span').contains('Update').click();
+  cy.wait(2000);
+}
+
 export function unpublishPost() {
   cy.get('span').contains('Update').click();
   cy.wait(500);
