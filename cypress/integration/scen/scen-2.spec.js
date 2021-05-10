@@ -33,10 +33,10 @@ context('Esenario 2', () => {
   it('Cerrar sesion', () => {
     Base.closeNotification();
     Auth.logout();
-  })
+  });
 
   it('Validar que el post no existe', () => {
     Base.basePageUrl();
     Post.shouldNotExist(postTitle);
-  })
+  });
 })

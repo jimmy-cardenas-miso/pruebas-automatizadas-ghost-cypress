@@ -31,15 +31,15 @@ context('Esenario 2', () => {
   it('Publicar post', () => {
     Post.updatePost();
     Post.backPostList();
-  })
+  });
 
   it('Cerrar sesion', () => {
     Base.closeNotification();
     Auth.logout();
-  })
+  });
 
   it('Validar que el post existe', () => {
     Base.basePageUrl();
     Post.shouldExist(newTitle);
-  })
+  });
 })

@@ -20,6 +20,11 @@ export const Base = {
     cy.wait(500);
   },
 
+  visitUrl: (url) => {
+    cy.visit(url, { failOnStatusCode: false });
+    cy.wait(500);
+  },
+
   baseUrl: () => {
     let url = Cypress.env('base_url') + '/ghost';
     cy.visit(url);
@@ -32,3 +37,7 @@ export const Base = {
     cy.wait(1000);
   }
 }
+
+Cypress.on('uncaught:exception', (err, runnable) => {
+  return false;
+});

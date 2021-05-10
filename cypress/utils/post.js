@@ -10,7 +10,7 @@ export const Post = {
   },
 
   addTitle: (title) => {
-    cy.get('textarea').get('.gh-editor-title').type(title);
+    cy.get('textarea').get('.gh-editor-title').clear().type(title);
   },
 
   clickParagraph: () => {
@@ -19,7 +19,7 @@ export const Post = {
   },
 
   addParagraph: (paragraph) => {
-    cy.get('article').find('[contenteditable]').type(paragraph);
+    cy.get('article').find('[contenteditable]').clear().type(paragraph);
     cy.wait(500);
   },
 

@@ -10,7 +10,7 @@ export const Page = {
   },
 
   addTitle: (title) => {
-    cy.get('textarea').get('.gh-editor-title').type(title);
+    cy.get('textarea').get('.gh-editor-title').clear().type(title);
   },
 
   clickParagraph: () => {
@@ -19,7 +19,7 @@ export const Page = {
   },
 
   addParagraph: (paragraph) => {
-    cy.get('article').find('[contenteditable]').type(paragraph);
+    cy.get('article').find('[contenteditable]').clear().type(paragraph);
     cy.wait(500);
   },
 
@@ -50,7 +50,7 @@ export const Page = {
   },
 
   openSettings: () => {
-    cy.get('button').get('.page-settings').click();
+    cy.get('button').get('.post-settings').click();
     cy.wait(500);
   },
 
@@ -59,12 +59,10 @@ export const Page = {
     cy.wait(500);
   },
 
-  selectFirstTag: () => {
-    cy.get('#tag-input').click();
+  deletePage: () => {
+    cy.get('.settings-menu-delete-button').first().click();
     cy.wait(500);
-    cy.get('.ember-power-select-option').first().click();
-    cy.wait(500);
-    cy.get('#tag-input').click();
+    cy.get('.modal-footer .gh-btn-red').click({force: true});
     cy.wait(500);
   },
 
@@ -79,6 +77,10 @@ export const Page = {
 
   shouldExistTitle: (title) => {
     cy.get('.post-full-title').contains(title).should('contain', title);
+  },
+
+  shouldNotExistPage: (title) => {
+    cy.get('.error-description').should('contain', 'Page not found');
   },
 
   shouldExistTag: (title, tag) => {
@@ -100,5 +102,9 @@ export const Page = {
 
   getFirstPublishedPageTag: () => {
     return cy.get('#tag-input .ember-power-select-multiple-option').first().invoke('text');
-  }
+  },
+
+  getPageUrl: () => {
+    return cy.get('.post-view-link').first().invoke('attr', 'href');
+  },
 }

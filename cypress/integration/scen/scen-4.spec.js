@@ -43,9 +43,9 @@ context('Esenario 4', () => {
     Base.baseUrl();
     Tag.clickTagsMenu();
     Tag.shouldExist(title);
-  })
+  });
 
   it('Cerrar sesion', () => {
     Auth.logout();
-  })
+  });
 })

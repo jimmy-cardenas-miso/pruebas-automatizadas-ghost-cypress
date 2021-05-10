@@ -35,12 +35,12 @@ context('Esenario 5', () => {
   it('Publicar post', () => {
     Post.updatePost();
     Post.backPostList();
-  })
+  });
 
   it('Cerrar sesion', () => {
     Base.closeNotification();
     Auth.logout();
-  })
+  });
 
   it('Validar que el post tiene el tag', () => {
     Base.basePageUrl();
