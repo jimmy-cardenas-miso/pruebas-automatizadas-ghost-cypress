@@ -75,6 +75,11 @@ export const Page = {
     cy.wait(500);
   },
 
+  removeFirstTag: () => {
+    cy.get('#tag-input .ember-power-select-multiple-remove-btn').first().click();
+    cy.wait(500);
+  },
+
   backPageList: () => {
     cy.get('a').get('.blue').click();
     cy.wait(500);
