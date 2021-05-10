@@ -1,13 +1,11 @@
 import * as base from '../../utils/base';
 import * as post from '../../utils/post';
 import * as auth from '../../utils/auth';
-import * as faker from 'faker';
 
 const cookieSessionName = Cypress.env('cookieSessionName') || "ghost-admin-api-session";
-const title = faker.lorem.word();
-const paragraph = faker.lorem.paragraph();
+let postTitle;
 
-context('Esenario 1', () => {
+context('Esenario 2', () => {
   before(() => {
     base.init();
   });
@@ -20,31 +18,23 @@ context('Esenario 1', () => {
     auth.login();
   });
 
-  it('Crear post', () => {
+  it('Abrir post', () => {
     post.clickPostMenu();
-    post.clickNewPost();
+    post.getFirstPublishedPostTitle().then(text => postTitle = text);
+    post.openFirstPublishedPost();
   });
 
-  it('Llenar post', () => {
-    post.addTitle(title);
-    post.clickParagraph();
-    base.baseUrl();
-    post.clickPostMenu();
-    post.getPostWithName(title);
-    post.addParagraph(paragraph);
-  });
-
-  it('Publicar post', () => {
-    post.publishPost();
+  it('Despublicar post', () => {
+    post.unpublishPost();
     post.backPostList();
-  })
+  });
 
   it('Cerrar sesion', () => {
     auth.logout();
   })
 
-  it('Validar que el post existe', () => {
+  it('Validar que el post no existe', () => {
     base.basePageUrl();
-    post.shouldExist(title);
+    post.shouldNotExist(postTitle);
   })
 })
