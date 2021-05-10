@@ -7,7 +7,7 @@ const cookieSessionName = Cypress.env('cookieSessionName') || "ghost-admin-api-s
 const title = faker.name.title();
 const paragraph = faker.lorem.paragraph();
 
-context('Esenario 1', () => {
+context('Escenario 1', () => {
   before(() => {
     Base.init();
   });

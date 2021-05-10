@@ -2,11 +2,15 @@ import { sanitizeText } from '../../utils/utils';
 import { Base } from '../../utils/base';
 import { Auth } from '../../utils/auth';
 import { Tag } from '../../utils/tag';
+import * as faker from 'faker';
 
 const cookieSessionName = Cypress.env('cookieSessionName') || "ghost-admin-api-session";
+const newTitle = faker.lorem.word();
+const newSlug = faker.lorem.word();
+const newParagraph = faker.lorem.word();
 let tagName;
 
-context('Escenario 12', () => {
+context('Escenario 13', () => {
   before(() => {
     Base.init();
   });
@@ -25,8 +29,8 @@ context('Escenario 12', () => {
     Tag.openFirstTag();
   });
 
-  it('Borrar tag', () => {
-    Tag.deleteTag();
+  it('Editar tag', () => {
+    Tag.changeData(newTitle, newSlug, newParagraph);
   });
 
   it('Cerrar sesion', () => {
@@ -40,7 +44,7 @@ context('Escenario 12', () => {
   it('Validar que el tag existe', () => {
     Base.baseUrl();
     Tag.clickTagsMenu();
-    Tag.shouldNotExist(tagName);
+    Tag.shouldExist(newTitle);
   });
 
   it('Cerrar sesion', () => {

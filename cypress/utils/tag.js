@@ -16,6 +16,13 @@ export const Tag = {
     cy.get('button').get('.gh-btn-blue').click()
   },
 
+  changeData: (name, slug, description) => {
+    cy.get('#tag-name').type(name, {force: true})
+    cy.get('#tag-slug').type(slug, {force: true})
+    cy.get('#tag-description').type(description, {force: true})
+    cy.get('button').get('.gh-btn-blue').click()
+  },
+
   shouldExist: (title) => {
     cy.get('.gh-tag-list-name').contains(title).should('contain', title);
   },

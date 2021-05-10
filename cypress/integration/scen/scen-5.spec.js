@@ -6,7 +6,7 @@ import { sanitizeText } from '../../utils/utils';
 const cookieSessionName = Cypress.env('cookieSessionName') || "ghost-admin-api-session";
 let postTitle, postTag;
 
-context('Esenario 5', () => {
+context('Escenario 5', () => {
   before(() => {
     Base.init();
   });

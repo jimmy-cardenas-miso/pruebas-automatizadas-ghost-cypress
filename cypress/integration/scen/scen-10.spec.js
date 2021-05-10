@@ -6,7 +6,7 @@ import { Auth } from '../../utils/auth';
 const cookieSessionName = Cypress.env('cookieSessionName') || "ghost-admin-api-session";
 let pageTitle, url;
 
-context('Esenario 10', () => {
+context('Escenario 10', () => {
   before(() => {
     Base.init();
   });

@@ -6,9 +6,7 @@ import {Auth} from '../../utils/auth';
 const cookieSessionName = Cypress.env('cookieSessionName') || "ghost-admin-api-session";
 let url;
 
-// | Escenario 8 | Login + Entrar a page + borrarla +  logout + entrar a localhost:2369/“URL” validar que no existe pagina (producción) |
-
-context('Esenario 8', () => {
+context('Escenario 8', () => {
   before(() => {
     Base.init();
   });

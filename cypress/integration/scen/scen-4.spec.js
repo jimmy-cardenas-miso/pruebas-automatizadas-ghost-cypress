@@ -8,7 +8,7 @@ const title = faker.name.title();
 const slug = faker.lorem.slug();
 const paragraph = faker.lorem.paragraph();
 
-context('Esenario 4', () => {
+context('Escenario 4', () => {
   before(() => {
     Base.init();
   });

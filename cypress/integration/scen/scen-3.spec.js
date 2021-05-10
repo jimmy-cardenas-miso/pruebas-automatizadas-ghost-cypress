@@ -6,7 +6,7 @@ import * as faker from 'faker';
 const cookieSessionName = Cypress.env('cookieSessionName') || "ghost-admin-api-session";
 const newTitle = faker.name.title();
 
-context('Esenario 2', () => {
+context('Escenario 2', () => {
   before(() => {
     Base.init();
   });
