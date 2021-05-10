@@ -66,6 +66,15 @@ export const Page = {
     cy.wait(500);
   },
 
+  selectFirstTag: () => {
+    cy.get('#tag-input').click();
+    cy.wait(500);
+    cy.get('.ember-power-select-option').first().click();
+    cy.wait(500);
+    cy.get('#tag-input').click();
+    cy.wait(500);
+  },
+
   backPageList: () => {
     cy.get('a').get('.blue').click();
     cy.wait(500);
@@ -79,7 +88,7 @@ export const Page = {
     cy.get('.post-full-title').contains(title).should('contain', title);
   },
 
-  shouldNotExistPage: (title) => {
+  shouldNotExistPage: () => {
     cy.get('.error-description').should('contain', 'Page not found');
   },
 
