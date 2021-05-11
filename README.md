@@ -56,10 +56,10 @@ Ejemplo
 | Escenario | Descripción |
 | --- | --- |
 | Escenario 1 | Login + Crear post + publicarlo + logout + validar post (localhost:2369/ producción) |
-| Escenario 2 | Login + des-publicar post + logout + validar post no publicado (producción) |
-| Escenario 3 | Login + abrir post + editar post + publicar + logout + validar post (producción) |
+| Escenario 2 | Login + Des-publicar post + logout + validar post no publicado (producción) |
+| Escenario 3 | Login + Abrir post + editar post + publicar + logout + validar post (producción) |
 | Escenario 4 | Login + Crear Tag + logout + login + validar tag creado (localhost:2369/ghost - administración) |
-| Escenario 5 | Login + Entrar al blog + Editarlo + Asignar Tag + Update + Publicar + logout + validar post (producción) |
+| Escenario 5 | Login + Entrar al post + Editarlo + Asignar Tag + Update + Publicar + logout + validar post (producción) |
 | Escenario 6 | Login + Crear page + configurar “URL” + publicarlo + entrar a localhost:2369/“URL” validar pagina (producción) + logout |
 | Escenario 7 | Login + Entrar a page + editarla + publicarlo + logout + entrar a localhost:2369/“URL” validar cambios pagina (producción) |
 | Escenario 8 | Login + Entrar a page + borrarla +  logout + entrar a localhost:2369/“URL” validar que no existe pagina (producción) | 

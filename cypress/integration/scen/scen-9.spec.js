@@ -2,8 +2,11 @@ import { sanitizeText } from '../../utils/utils';
 import { Page } from '../../utils/page';
 import { Base } from '../../utils/base';
 import { Auth } from '../../utils/auth';
+import * as faker from 'faker';
 
 const cookieSessionName = Cypress.env('cookieSessionName') || "ghost-admin-api-session";
+const title = faker.name.title();
+const paragraph = faker.lorem.paragraph();
 let pageTitle, pageTag, url;
 
 context('Escenario 9', () => {
@@ -17,6 +20,19 @@ context('Escenario 9', () => {
 
   it('Iniciar sesión', () => {
     Auth.login();
+  });
+
+  it('Crear page', () => {
+    Page.clickPageMenu();
+    Page.clickNewPage();
+    Page.addTitle(title);
+    Page.clickParagraph();
+    Base.baseUrl();
+    Page.clickPageMenu();
+    Page.getPageWithName(title);
+    Page.addParagraph(paragraph);
+    Page.publishPage();
+    Page.backPageList();
   });
 
   it('Abrir page', () => {
