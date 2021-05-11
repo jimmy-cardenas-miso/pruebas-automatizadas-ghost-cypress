@@ -75,3 +75,13 @@ Ejemplo
 | Escenario 18 | Login Correcto + validar vista de página principal (Administración) |
 | Escenario 19 | Login Errado + validar texto de error en login (Administración) |
 | Escenario 20 | Logout Correcto + validar la URL de logout (Administración) |
+
+
+## Integrantes
+
+| Nombre | Correo |
+| --- | --- |
+| Mauricio Corredor | malec@uniandes.edu.co |
+| Ricardo Arango | r.arango@uniandes.edu.co |
+| Darwin Moreno | d.moreno11@uniandes.edu.co |
+| Jimmy Cárdenas | ja.cardenas3388@uniandes.edu.co |
