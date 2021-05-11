@@ -1,14 +1,12 @@
-import { sanitizeText } from '../../utils/utils';
 import { Base } from '../../utils/base';
 import { Auth } from '../../utils/auth';
-import { Tag } from '../../utils/tag';
+import { Staff } from '../../utils/staff';
 import * as faker from 'faker';
 
 const cookieSessionName = Cypress.env('cookieSessionName') || "ghost-admin-api-session";
-const newDescription = faker.lorem.word();
-let tagName;
+const name = faker.name.firstName();
 
-context('Escenario 14', () => {
+context('Escenario 15', () => {
   before(() => {
     Base.init();
   });
@@ -21,14 +19,13 @@ context('Escenario 14', () => {
     Auth.login();
   });
 
-  it('Abrir tag', () => {
-    Tag.clickTagsMenu();
-    Tag.openFirstTagName().then(text => tagName = sanitizeText(text));
-    Tag.openFirstTag();
+  it('Entrar a staff y propietario', () => {
+    Staff.clickStaffMenu();
+    Staff.clickOwner();
   });
 
-  it('Editar description tag', () => {
-    Tag.editDescription(newDescription);
+  it('Editar nombre de usuario', () => {
+    Staff.editUserName(name);
   });
 
   it('Cerrar sesion', () => {
@@ -39,11 +36,13 @@ context('Escenario 14', () => {
     Auth.login();
   });
 
-  it('Validar que la descripción es correcta', () => {
-    Base.baseUrl();
-    Tag.clickTagsMenu();
-    Tag.openFirstTag();
-    Tag.shouldExistDescription(newDescription);
+  it('Entrar a staff y propietario', () => {
+    Staff.clickStaffMenu();
+    Staff.clickOwner();
+  });
+
+  it('Validar que el nombre es correcto', () => {
+    Staff.checkUserName(name);
   });
 
   it('Cerrar sesion', () => {

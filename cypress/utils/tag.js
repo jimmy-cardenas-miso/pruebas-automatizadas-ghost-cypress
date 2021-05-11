@@ -23,7 +23,7 @@ export const Tag = {
 
   editDescription: (description) => {
     cy.get('#tag-description').type(description, {force: true})
-    cy.get('button').get('.gh-btn-blue').click()
+    cy.get('button').get('.gh-btn-blue').click();
   },
 
   shouldExist: (title) => {
