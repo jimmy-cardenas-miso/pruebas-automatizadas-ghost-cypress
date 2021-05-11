@@ -72,5 +72,6 @@ Ejemplo
 | Escenario 15 | Login + Entrar a Staff + Editar nombre del usuario +  logout + login + entrar a Staff + validar que el nombre del Usuario si cambio (administración) |
 | Escenario 16 | Login + Entrar a Members + Crear nuevo miembro +  logout + login + entrar a Members + validar que el último miembro creado existe (administración) |
 | Escenario 17 | Login + Entrar a Members + Eliminar miembro +  logout + login + entrar a Members + validar que se elimino correctamente (administración)  Escenario18- Login Errado + validar texto de error en login (Administración) |
-| Escenario 19 | Login Correcto + validar texto de error en login (Administración) |
+| Escenario 18 | Login Correcto + validar vista de página principal (Administración) |
+| Escenario 19 | Login Errado + validar texto de error en login (Administración) |
 | Escenario 20 | Logout Correcto + validar la URL de logout (http://localhost:2369/ghost/#/signin) (Administración) |
