@@ -35,6 +35,11 @@ export const Base = {
     let url = Cypress.env('base_url');
     cy.visit(url);
     cy.wait(1000);
+  },
+
+  checkHomeUrl: () => {
+    let homeUrl = Cypress.env('base_url') + '/ghost/#/site';
+    cy.url().should('eq', homeUrl);
   }
 }
 
