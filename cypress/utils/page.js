@@ -41,14 +41,6 @@ export const Page = {
     cy.wait(3000);
   },
 
-  unpublishPage: () => {
-    cy.get('span').contains('Update').click();
-    cy.wait(500);
-    cy.get('.gh-publishmenu-radio-label').contains('Unpublished').click();
-    cy.get('button').get('.gh-publishmenu-button').contains('Unpublish').click();
-    cy.wait(2000);
-  },
-
   openSettings: () => {
     cy.get('button').get('.post-settings').click();
     cy.wait(500);
@@ -85,24 +77,12 @@ export const Page = {
     cy.wait(500);
   },
 
-  shouldExist: (title) => {
-    cy.get('.page-card-title').contains(title).should('contain', title);
-  },
-
   shouldExistTitle: (title) => {
     cy.get('.post-full-title').contains(title).should('contain', title);
   },
 
   shouldNotExistPage: () => {
     cy.get('.error-description').should('contain', 'Page not found');
-  },
-
-  shouldExistTag: (title, tag) => {
-    cy.get('.page-card-title').contains(title).parent().get('.page-card-primary-tag').first().should('contain', tag);
-  },
-
-  shouldNotExist: (title) => {
-    cy.get('.page-card-title').contains(title).should('not.exist');
   },
 
   openFirstPublishedPage: () => {

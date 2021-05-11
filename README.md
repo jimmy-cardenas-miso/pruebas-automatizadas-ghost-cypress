@@ -65,7 +65,7 @@ Ejemplo
 | Escenario 8 | Login + Entrar a page + borrarla +  logout + entrar a localhost:2369/“URL” validar que no existe pagina (producción) | 
 | Escenario 9 | Login + Entrar a page + asignar TAG+ publicarlo + logout + entrar a localhost:2369/“URL” validar la asignación del TAG (producción) |
 | Escenario 10 | Login + Entrar a page + des-asignar TAG+ publicarlo + logout + entrar a localhost:2369/“URL” validar la NO asignación del TAG (producción)
-| Escenario 11 | Login + Entrar a page + Cambiar atributo de Post Access + publicarlo + logout + entrar a localhost:2369/“URL” validar su acceso (producción) |
+| Escenario 11 | Login + Abrir post + eliminar post + logout + validar que no existe el post eliminado (producción) |
 | Escenario 12 | Login + Entrar a Tags + borrar TAG +  logout + login + entrar a Tags + validar que no existe el TAG eliminado (administración) |
 | Escenario 13 | Login + Entrar a Tags + Editar nombre de TAG + logout + login + entrar a Tags + validar que el nombre del TAG si cambio(administración)
 | Escenario 14 | Login + Entrar a Tags + Editar description de TAG +  logout + login + entrar a Tags + validar que la descripción del TAG si cambio (administración) |

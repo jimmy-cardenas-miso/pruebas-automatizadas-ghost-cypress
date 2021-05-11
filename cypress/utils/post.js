@@ -27,6 +27,13 @@ export const Post = {
     cy.get(".gh-post-list-title").contains(title).click({force: true},);
   },
 
+  deletePost: () => {
+    cy.get('.settings-menu-delete-button').first().click();
+    cy.wait(500);
+    cy.get('.modal-footer .gh-btn-red').click({force: true});
+    cy.wait(500);
+  },
+
   publishPost: () => {
     cy.get('span').contains('Publish').click();
     cy.wait(500);
@@ -57,6 +64,10 @@ export const Post = {
   closeSettings: () => {
     cy.get('button').get('.settings-menu-header-action').click();
     cy.wait(500);
+  },
+
+  shouldNotExistPost: () => {
+    cy.get('.error-description').should('contain', 'Page not found');
   },
 
   selectFirstTag: () => {
@@ -96,5 +107,9 @@ export const Post = {
 
   getFirstPublishedPostTag: () => {
     return cy.get('#tag-input .ember-power-select-multiple-option').first().invoke('text');
-  }
+  },
+
+  getPostUrl: () => {
+    return cy.get('.post-view-link').first().invoke('attr', 'href');
+  },
 }

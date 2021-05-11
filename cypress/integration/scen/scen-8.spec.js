@@ -36,7 +36,7 @@ context('Escenario 8', () => {
     Auth.logout();
   });
 
-  it('Validar page', () => {
+  it('Validar que no existe page', () => {
     Base.visitUrl(url);
     Page.shouldNotExistPage();
   });
