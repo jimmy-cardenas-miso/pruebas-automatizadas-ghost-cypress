@@ -5,10 +5,10 @@ import { Tag } from '../../utils/tag';
 import * as faker from 'faker';
 
 const cookieSessionName = Cypress.env('cookieSessionName') || "ghost-admin-api-session";
-const newName = faker.lorem.word();
+const newDescription = faker.lorem.word();
 let tagName;
 
-context('Escenario 13', () => {
+context('Escenario 14', () => {
   before(() => {
     Base.init();
   });
@@ -27,8 +27,8 @@ context('Escenario 13', () => {
     Tag.openFirstTag();
   });
 
-  it('Editar nombre tag', () => {
-    Tag.editName(newName);
+  it('Editar description tag', () => {
+    Tag.editDescription(newDescription);
   });
 
   it('Cerrar sesion', () => {
@@ -39,10 +39,11 @@ context('Escenario 13', () => {
     Auth.login();
   });
 
-  it('Validar que el tag existe', () => {
+  it('Validar que la descripción es correct', () => {
     Base.baseUrl();
     Tag.clickTagsMenu();
-    Tag.shouldExist(newName);
+    Tag.openFirstTag();
+    Tag.shouldExistDescription(newDescription);
   });
 
   it('Cerrar sesion', () => {
