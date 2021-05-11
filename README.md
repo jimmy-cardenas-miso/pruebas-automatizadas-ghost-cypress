@@ -36,9 +36,9 @@ npm install
 Ejemplo 
 ```bash
 {
-    "base_url": "http://localhost:2376",
+    "base_url": "http://localhost:2377",
     "auth": {
-      "email": "prueba@automatizadas.com",
+      "email": "pruebas@automatizadas.com",
       "password": "pruebas1234"
     }
 }
@@ -55,16 +55,16 @@ Ejemplo
 
 | Escenario | Descripción |
 | --- | --- |
-| Escenario 1 | Login + Crear post + publicarlo + logout + validar post (localhost:2369/ producción) |
+| Escenario 1 | Login + Crear post + publicarlo + logout + validar post (producción) |
 | Escenario 2 | Login + Des-publicar post + logout + validar post no publicado (producción) |
 | Escenario 3 | Login + Abrir post + editar post + publicar + logout + validar post (producción) |
-| Escenario 4 | Login + Crear Tag + logout + login + validar tag creado (localhost:2369/ghost - administración) |
+| Escenario 4 | Login + Crear Tag + logout + login + validar tag creado (administración) |
 | Escenario 5 | Login + Entrar al post + Editarlo + Asignar Tag + Update + Publicar + logout + validar post (producción) |
-| Escenario 6 | Login + Crear page + configurar “URL” + publicarlo + entrar a localhost:2369/“URL” validar pagina (producción) + logout |
-| Escenario 7 | Login + Entrar a page + editarla + publicarlo + logout + entrar a localhost:2369/“URL” validar cambios pagina (producción) |
-| Escenario 8 | Login + Entrar a page + borrarla +  logout + entrar a localhost:2369/“URL” validar que no existe pagina (producción) | 
-| Escenario 9 | Login + Entrar a page + asignar TAG+ publicarlo + logout + entrar a localhost:2369/“URL” validar la asignación del TAG (producción) |
-| Escenario 10 | Login + Entrar a page + des-asignar TAG+ publicarlo + logout + entrar a localhost:2369/“URL” validar la NO asignación del TAG (producción)
+| Escenario 6 | Login + Crear page + configurar “URL” + publicarlo + entrar a url base validar pagina (producción) + logout |
+| Escenario 7 | Login + Entrar a page + editarla + publicarlo + logout + entrar a url base validar cambios pagina (producción) |
+| Escenario 8 | Login + Entrar a page + borrarla +  logout + entrar a url base validar que no existe pagina (producción) | 
+| Escenario 9 | Login + Entrar a page + asignar TAG+ publicarlo + logout + entrar a url base validar la asignación del TAG (producción) |
+| Escenario 10 | Login + Entrar a page + des-asignar TAG+ publicarlo + logout + entrar a url base validar la NO asignación del TAG (producción)
 | Escenario 11 | Login + Abrir post + eliminar post + logout + validar que no existe el post eliminado (producción) |
 | Escenario 12 | Login + Entrar a Tags + borrar TAG +  logout + login + entrar a Tags + validar que no existe el TAG eliminado (administración) |
 | Escenario 13 | Login + Entrar a Tags + Editar nombre de TAG + logout + login + entrar a Tags + validar que el nombre del TAG si cambio(administración)
@@ -74,4 +74,69 @@ Ejemplo
 | Escenario 17 | Login + Entrar a Members + Eliminar miembro +  logout + login + entrar a Members + validar que se elimino correctamente (administración)  Escenario18- Login Errado + validar texto de error en login (Administración) |
 | Escenario 18 | Login Correcto + validar vista de página principal (Administración) |
 | Escenario 19 | Login Errado + validar texto de error en login (Administración) |
-| Escenario 20 | Logout Correcto + validar la URL de logout (http://localhost:2369/ghost/#/signin) (Administración) |
+| Escenario 20 | Logout Correcto + validar la URL de logout (Administración) |
+
+
+
+
+## Funcionalidades
+* Posts
+* Pages
+* Tags
+* Login
+* Staff
+
+## Funcionalidades
+| Escenario | Descripción |
+| --- | --- |
+| Escenario 1 | Login + Crear post + publicarlo + logout + validar post (producción) |
+| Escenario 2 | Login + Des-publicar post + logout + validar post no publicado (producción) |
+| Escenario 3 | Login + Abrir post + editar post + publicar + logout + validar post (producción) |
+| Escenario 4 | Login + Crear Tag + logout + login + validar tag creado (administración) |
+| Escenario 5 | Login + Entrar al post + Editarlo + Asignar Tag + Update + Publicar + logout + validar post (producción) |
+| Escenario 6 | Login + Crear page + configurar “URL” + publicarlo + entrar a url base validar pagina (producción) + logout |
+| Escenario 7 | Login + Entrar a page + editarla + publicarlo + logout + entrar a url base validar cambios pagina (producción) |
+| Escenario 8 | Login + Entrar a page + borrarla +  logout + entrar a url base validar que no existe pagina (producción) | 
+| Escenario 9 | Login + Entrar a page + asignar TAG+ publicarlo + logout + entrar a url base validar la asignación del TAG (producción) |
+| Escenario 10 | Login + Entrar a page + des-asignar TAG+ publicarlo + logout + entrar a url base validar la NO asignación del TAG (producción)
+| Escenario 11 | Login + Abrir post + eliminar post + logout + validar que no existe el post eliminado (producción) |
+| Escenario 12 | Login + Entrar a Tags + borrar TAG +  logout + login + entrar a Tags + validar que no existe el TAG eliminado (administración) |
+| Escenario 13 | Login + Entrar a Tags + Editar nombre de TAG + logout + login + entrar a Tags + validar que el nombre del TAG si cambio(administración)
+| Escenario 14 | Login + Entrar a Tags + Editar description de TAG +  logout + login + entrar a Tags + validar que la descripción del TAG si cambio (administración) |
+| Escenario 15 | Login + Entrar a Staff + Editar nombre del usuario +  logout + login + entrar a Staff + validar que el nombre del Usuario si cambio (administración) |
+| Escenario 16 | Login + Entrar a Members + Crear nuevo miembro +  logout + login + entrar a Members + validar que el último miembro creado existe (administración) |
+| Escenario 17 | Login + Entrar a Members + Eliminar miembro +  logout + login + entrar a Members + validar que se elimino correctamente (administración)  Escenario18- Login Errado + validar texto de error en login (Administración) |
+| Escenario 18 | Login Correcto + validar vista de página principal (Administración) |
+| Escenario 19 | Login Errado + validar texto de error en login (Administración) |
+| Escenario 20 | Logout Correcto + validar la URL de logout (Administración) |
+
+## Pros - Contras (Cypress - Kraken)
+|  | Cypress | Kraken |
+| --- | --- | --- |
+| Pros | <ul><li>Fácil instalación</li><li>Estructura de código clara</li><li>Se puede modularizar</li><li>Una curva de aprendizaje relativamente sencilla</li><li>Tiene interfaz grafica que apoya el desarrollo</li><li>GUI para visualizar los escenarios que se ejecutan</li><li>Screenshots y video de los casos de prueba</li><li>Buena documentación y una comunidad my grande</li></ul>| <ul><li>Reporte gráfico de los escenarios de pruebas</li><li>Maneja lenguaje Gerkin</li><li>Permite facilidad de lectura para personas que no son afines con el lenguaje (Personas de negocio)</li><li>Al estar basado en Cucumber, Calabash tiene buen soporte</li><li>Genera screenshots de la ejecución de pruebas</li></ul> |
+| Contras | <ul><li>Tiene errores de navegación</li><li>Debido a la ejecución de los escenarios por medio de GUI tarda mucho tiempo</li><li>Es difícil interactuar con variables que no están a la vista</li><li>No presenta cobertura del las funcionalidades</li></ul> | <ul><li>Instalación larga</li><li>Curva de aprendizaje</li><li>Limites en la navegación de un sitio</li><li>Los selectores no fáciles de determinar</li><li>No genera video con evidencias de las pruebas</li><li>No tiene documentación robusta</li><li>Crear las pruebas consume mucho tiempo</li></ul> |
+
+
+
+
+En la wiki del repo se describen los pros y contras de las dos herramientas utilizadas. Los pros/contras deben ser coherentes con las características de las herramientas. [15 puntos]
+
+
+Pruebas con la primer herramienta (Cypress/Puppeteer/Playwright):
+El repositorio contiene el código de los 20 casos/escenarios de pruebas creados con la primera herramienta seleccionada. [3 puntos]
+
+
+El readme del repo detalla las instrucciones para ejecutar los escenarios. Estas instrucciones deben llevar a la ejecución de los escenarios. De lo contrario no se darán los puntos en el siguiente criterio. [2 puntos]
+
+Los escenarios se ejecutan exitosamente. [20 puntos]
+
+Los casos de prueba y escenarios construidos con la primer herramienta deben usar los patrones vistos. [15 puntos]
+
+Pruebas con Kraken:
+El repositorio tiene el código para ejecutar los 20 casos/escenarios creados con Kraken. [3 puntos]
+
+El readme del repo se detallan las instrucciones para ejecutarlos. Estas instrucciones deben llevar a la ejecución de los escenarios. De lo contrario no se darán los puntos. [2 puntos]
+
+Los escenarios son funcionales. [20 puntos]
+
+Los casos de prueba y escenarios construidos con kraken deben usar los patrones vistos. [15 puntos]
