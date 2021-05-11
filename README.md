@@ -10,6 +10,10 @@
     </a>
 </p>
 
+## Repositorio de Kraken
+[Repositorio Kraken](https://github.com/mauricio-corredor/pruebas-automatizadas-kraken-ghost)
+
+
 ## Installing
 
 [![npm version](https://badge.fury.io/js/cypress.svg)](https://badge.fury.io/js/cypress)
