@@ -1,3 +1,4 @@
+import { sanitizeText } from '../../utils/utils';
 import { Base } from '../../utils/base';
 import { Auth } from '../../utils/auth';
 import { Staff } from '../../utils/staff';
@@ -5,8 +6,9 @@ import * as faker from 'faker';
 
 const cookieSessionName = Cypress.env('cookieSessionName') || "ghost-admin-api-session";
 const email = faker.internet.email();
+let memberEmail;
 
-context('Escenario 16', () => {
+context('Escenario 17', () => {
   before(() => {
     Base.init();
   });
@@ -19,16 +21,23 @@ context('Escenario 16', () => {
     Auth.login();
   });
 
-  it('Crear un nuevo miembro', () => {
+  it('Entrar a staff', () => {
     Staff.clickStaffMenu();
-    Staff.clickNewStaff();
   });
 
-  it('Agregar nuevo email', () => {
+  it('Crear nuevo miembro', () => {
+    Staff.clickStaffMenu();
+    Staff.clickNewStaff();
     Staff.addNewEmail(email);
   });
 
+  it('Eliminar miembro', () => {
+    Staff.getFirstMemberEmail().then(text => memberEmail = sanitizeText(text));
+    Staff.deleteFirstMember();
+  });
+
   it('Cerrar sesion', () => {
+    Base.closeNotification();
     Auth.logout();
   });
 
@@ -40,8 +49,8 @@ context('Escenario 16', () => {
     Staff.clickStaffMenu();
   });
 
-  it('Validar que no existe el miembro eliminado', () => {
-    Staff.checkUserEmail(email);
+  it('Validar que existe el nuevo miembro', () => {
+    Staff.checkUserEmailNotExist(memberEmail);
   });
 
   it('Cerrar sesion', () => {

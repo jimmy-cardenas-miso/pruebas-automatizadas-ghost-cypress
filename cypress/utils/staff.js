@@ -30,5 +30,17 @@ export const Staff = {
 
   checkUserEmail: (email) => {
     cy.get('.apps-card-app-title').contains(email).should('contain', email);
+  },
+
+  checkUserEmailNotExist: (email) => {
+    cy.get('.apps-card-app-title').contains(email).should('not.exist');
+  },
+
+  deleteFirstMember: () => {
+    cy.get('.apps-configured-action').first().click();
+  },
+
+  getFirstMemberEmail: () => {
+    return cy.get('.apps-card-app-title').first().invoke('text');
   }
 }
