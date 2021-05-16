@@ -1,15 +1,15 @@
+import { Screenshot } from '../../utils/screenshot';
 import { sanitizeText } from '../../utils/utils';
 import { Base } from '../../utils/base';
 import { Auth } from '../../utils/auth';
 import { Post } from '../../utils/post';
 import * as faker from 'faker';
-import { Screenshoot } from "../../utils/screenshoot";
 
 const cookieSessionName = Cypress.env('cookieSessionName') || "ghost-admin-api-session";
 const title = faker.name.title();
 const paragraph = faker.lorem.paragraph();
 let url;
-var screenshoot = new Screenshoot('esc_11');
+let screenshot = new Screenshot('esc_11');
 
 context('Escenario 11', () => {
   before(() => {
@@ -61,6 +61,6 @@ context('Escenario 11', () => {
   });
 
   afterEach(() => {
-    screenshoot.takeScreenShoot();
+    screenshot.takeScreenshot();
   });
 })

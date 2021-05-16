@@ -1,12 +1,12 @@
+import { Screenshot } from '../../utils/screenshot';
 import { sanitizeText } from '../../utils/utils';
 import { Base } from '../../utils/base';
 import { Auth } from '../../utils/auth';
 import { Tag } from '../../utils/tag';
-import { Screenshoot } from "../../utils/screenshoot";
 
 const cookieSessionName = Cypress.env('cookieSessionName') || "ghost-admin-api-session";
 let tagName;
-var screenshoot = new Screenshoot('esc_12');
+let screenshot = new Screenshot('esc_12');
 
 context('Escenario 12', () => {
   before(() => {
@@ -50,6 +50,6 @@ context('Escenario 12', () => {
   });
 
   afterEach(() => {
-    screenshoot.takeScreenShoot();
+    screenshot.takeScreenshot();
   });
 })

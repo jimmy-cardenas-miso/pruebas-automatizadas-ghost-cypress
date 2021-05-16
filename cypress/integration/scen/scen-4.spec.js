@@ -2,13 +2,13 @@ import { Base } from '../../utils/base';
 import { Auth } from '../../utils/auth';
 import { Tag } from '../../utils/tag';
 import * as faker from 'faker';
-import { Screenshoot } from "../../utils/screenshoot";
+import { Screenshot } from '../../utils/screenshot';
 
 const cookieSessionName = Cypress.env('cookieSessionName') || "ghost-admin-api-session";
 const title = faker.name.title();
 const slug = faker.lorem.slug();
 const paragraph = faker.lorem.paragraph();
-var screenshoot = new Screenshoot('esc_4');
+let screenshot = new Screenshot('esc_4');
 
 context('Escenario 4', () => {
   before(() => {
@@ -52,6 +52,6 @@ context('Escenario 4', () => {
   });
 
   afterEach(() => {
-    screenshoot.takeScreenShoot();
+    screenshot.takeScreenshot();
   });
 })

@@ -53,6 +53,10 @@ Ejemplo
 ```bash
 ./node_modules/.bin/cypress open
 ```
+or
+```bash
+npm run cypress:start
+```
 
 3. Run any tests clicking scens
 

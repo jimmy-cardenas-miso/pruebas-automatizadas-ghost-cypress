@@ -1,8 +1,8 @@
+import { Screenshot } from '../../utils/screenshot';
 import { Base } from '../../utils/base';
-import { Screenshoot } from "../../utils/screenshoot";
 
 const cookieSessionName = Cypress.env('cookieSessionName') || "ghost-admin-api-session";
-var screenshoot = new Screenshoot('esc_19');
+let screenshot = new Screenshot('esc_19');
 
 context('Esenario 19', () => {
   before(() => {
@@ -28,7 +28,7 @@ context('Esenario 19', () => {
   });
 
   afterEach(() => {
-    screenshoot.takeScreenShoot();
+    screenshot.takeScreenshot();
   });
 })
 
