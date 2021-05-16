@@ -2,10 +2,12 @@ import { Post } from '../../utils/post';
 import { Base } from '../../utils/base';
 import { Auth } from '../../utils/auth';
 import * as faker from 'faker';
+import { Screenshoot } from "../../utils/screenshoot";
 
 const cookieSessionName = Cypress.env('cookieSessionName') || "ghost-admin-api-session";
 const title = faker.name.title();
 const paragraph = faker.lorem.paragraph();
+var screenshoot = new Screenshoot('esc_1');
 
 context('Escenario 1', () => {
   before(() => {
@@ -47,5 +49,9 @@ context('Escenario 1', () => {
   it('Validar que el post existe', () => {
     Base.basePageUrl();
     Post.shouldExist(title);
+  });
+
+  afterEach(() => {
+    screenshoot.takeScreenShoot();
   });
 })

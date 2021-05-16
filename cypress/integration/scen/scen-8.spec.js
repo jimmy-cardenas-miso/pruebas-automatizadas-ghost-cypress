@@ -2,9 +2,11 @@ import {sanitizeText} from '../../utils/utils';
 import {Page} from '../../utils/page';
 import {Base} from '../../utils/base';
 import {Auth} from '../../utils/auth';
+import { Screenshoot } from "../../utils/screenshoot";
 
 const cookieSessionName = Cypress.env('cookieSessionName') || "ghost-admin-api-session";
 let url;
+var screenshoot = new Screenshoot('esc_8');
 
 context('Escenario 8', () => {
   before(() => {
@@ -39,5 +41,9 @@ context('Escenario 8', () => {
   it('Validar que no existe page', () => {
     Base.visitUrl(url);
     Page.shouldNotExistPage();
+  });
+
+  afterEach(() => {
+    screenshoot.takeScreenShoot();
   });
 })

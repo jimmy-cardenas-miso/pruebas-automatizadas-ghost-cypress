@@ -2,9 +2,12 @@ import { Post } from '../../utils/post';
 import { Base } from '../../utils/base';
 import { Auth } from '../../utils/auth';
 import { sanitizeText } from '../../utils/utils';
+import { Screenshoot } from "../../utils/screenshoot";
 
 const cookieSessionName = Cypress.env('cookieSessionName') || "ghost-admin-api-session";
 let postTitle;
+var screenshoot = new Screenshoot('esc_2');
+
 
 context('Escenario 2', () => {
   before(() => {
@@ -38,5 +41,10 @@ context('Escenario 2', () => {
   it('Validar que el post no existe', () => {
     Base.basePageUrl();
     Post.shouldNotExist(postTitle);
+
+  });
+  
+  afterEach(() => {
+    screenshoot.takeScreenShoot();
   });
 })

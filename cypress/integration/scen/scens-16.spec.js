@@ -2,9 +2,11 @@ import { Base } from '../../utils/base';
 import { Auth } from '../../utils/auth';
 import { Staff } from '../../utils/staff';
 import * as faker from 'faker';
+import { Screenshoot } from "../../utils/screenshoot";
 
 const cookieSessionName = Cypress.env('cookieSessionName') || "ghost-admin-api-session";
 const email = faker.internet.email();
+var screenshoot = new Screenshoot('esc_16');
 
 context('Escenario 16', () => {
   before(() => {
@@ -46,5 +48,9 @@ context('Escenario 16', () => {
 
   it('Cerrar sesion', () => {
     Auth.logout();
+  });
+
+  afterEach(() => {
+    screenshoot.takeScreenShoot();
   });
 })

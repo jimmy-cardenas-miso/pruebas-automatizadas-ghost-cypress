@@ -2,9 +2,11 @@ import { Post } from '../../utils/post';
 import { Base } from '../../utils/base';
 import { Auth } from '../../utils/auth';
 import * as faker from 'faker';
+import { Screenshoot } from "../../utils/screenshoot";
 
 const cookieSessionName = Cypress.env('cookieSessionName') || "ghost-admin-api-session";
 const newTitle = faker.name.title();
+var screenshoot = new Screenshoot('esc_3');
 
 context('Escenario 2', () => {
   before(() => {
@@ -42,4 +44,9 @@ context('Escenario 2', () => {
     Base.basePageUrl();
     Post.shouldExist(newTitle);
   });
+
+  afterEach(() => {
+    screenshoot.takeScreenShoot();
+  });
+
 })

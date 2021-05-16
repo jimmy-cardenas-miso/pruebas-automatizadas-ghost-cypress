@@ -3,11 +3,13 @@ import { Base } from '../../utils/base';
 import { Auth } from '../../utils/auth';
 import { Post } from '../../utils/post';
 import * as faker from 'faker';
+import { Screenshoot } from "../../utils/screenshoot";
 
 const cookieSessionName = Cypress.env('cookieSessionName') || "ghost-admin-api-session";
 const title = faker.name.title();
 const paragraph = faker.lorem.paragraph();
 let url;
+var screenshoot = new Screenshoot('esc_11');
 
 context('Escenario 11', () => {
   before(() => {
@@ -56,5 +58,9 @@ context('Escenario 11', () => {
   it('Validar que no existe post', () => {
     Base.visitUrl(url);
     Post.shouldNotExistPost();
+  });
+
+  afterEach(() => {
+    screenshoot.takeScreenShoot();
   });
 })

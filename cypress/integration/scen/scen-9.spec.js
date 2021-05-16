@@ -3,11 +3,13 @@ import { Page } from '../../utils/page';
 import { Base } from '../../utils/base';
 import { Auth } from '../../utils/auth';
 import * as faker from 'faker';
+import { Screenshoot } from "../../utils/screenshoot";
 
 const cookieSessionName = Cypress.env('cookieSessionName') || "ghost-admin-api-session";
 const title = faker.name.title();
 const paragraph = faker.lorem.paragraph();
 let pageTitle, pageTag, url;
+var screenshoot = new Screenshoot('esc_9');
 
 context('Escenario 9', () => {
   before(() => {
@@ -64,5 +66,9 @@ context('Escenario 9', () => {
   it('Validar page', () => {
     Base.visitUrl(url);
     Page.shouldExistTitle(pageTitle);
+  });
+
+  afterEach(() => {
+    screenshoot.takeScreenShoot();
   });
 })

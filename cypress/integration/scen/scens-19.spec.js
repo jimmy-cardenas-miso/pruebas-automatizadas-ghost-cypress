@@ -1,6 +1,8 @@
 import { Base } from '../../utils/base';
+import { Screenshoot } from "../../utils/screenshoot";
 
 const cookieSessionName = Cypress.env('cookieSessionName') || "ghost-admin-api-session";
+var screenshoot = new Screenshoot('esc_19');
 
 context('Esenario 19', () => {
   before(() => {
@@ -23,6 +25,10 @@ context('Esenario 19', () => {
   it('Verifica que se obtenga el mensaje de error de login', () => {
     cy.get('p').should('have.class', 'main-error');
     Base.init();
+  });
+
+  afterEach(() => {
+    screenshoot.takeScreenShoot();
   });
 })
 

@@ -2,10 +2,12 @@ import { Page } from '../../utils/page';
 import { Base } from '../../utils/base';
 import { Auth } from '../../utils/auth';
 import * as faker from 'faker';
+import { Screenshoot } from "../../utils/screenshoot";
 
 const cookieSessionName = Cypress.env('cookieSessionName') || "ghost-admin-api-session";
 const title = faker.name.title();
 const paragraph = faker.lorem.paragraph();
+var screenshoot = new Screenshoot('esc_6');
 
 context('Escenario 6', () => {
   before(() => {
@@ -46,5 +48,9 @@ context('Escenario 6', () => {
   it('Cerrar sesion', () => {
     Base.baseUrl();
     Auth.logout();
+  });
+
+  afterEach(() => {
+    screenshoot.takeScreenShoot();
   });
 })
