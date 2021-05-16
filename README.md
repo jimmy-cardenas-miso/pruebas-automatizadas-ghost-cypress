@@ -10,8 +10,13 @@
     </a>
 </p>
 
-## Repositorio de Kraken
+## Repositorios
+
 [Repositorio Kraken](https://github.com/mauricio-corredor/pruebas-automatizadas-kraken-ghost)
+
+[Repositorio Resemble](https://github.com/jimmy-cardenas-miso/pruebas-automatizadas-ghost-resemble)
+
+[Repositorio Backstop](https://github.com/jimmy-cardenas-miso/pruebas-automatizadas-ghost-backstop)
 
 
 ## Installing
