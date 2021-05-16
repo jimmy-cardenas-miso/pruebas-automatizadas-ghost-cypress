@@ -1,0 +1,26 @@
+{
+  "name": "pruebas-automatizadas-ghost-cypress",
+  "version": "1.0.0",
+  "description": "<p align=\"center\">   <img src=\"https://cloud.githubusercontent.com/assets/1268976/20607953/d7ae489c-b24a-11e6-9cc4-91c6c74c5e88.png\"/> </p>",
+  "main": "index.js",
+  "dependencies": {
+    "faker": "^5.5.3"
+  },
+  "devDependencies": {
+    "cypress": "^7.3.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "cypress:start": "./node_modules/.bin/cypress open"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jimmy-cardenas-miso/pruebas-automatizadas-ghost-cypress.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jimmy-cardenas-miso/pruebas-automatizadas-ghost-cypress/issues"
+  },
+  "homepage": "https://github.com/jimmy-cardenas-miso/pruebas-automatizadas-ghost-cypress#readme"
+}
