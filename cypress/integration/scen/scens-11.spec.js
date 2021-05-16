@@ -51,7 +51,6 @@ context('Escenario 11', () => {
   });
 
   it('Cerrar sesion', () => {
-    Base.closeNotification();
     Auth.logout();
   });
 

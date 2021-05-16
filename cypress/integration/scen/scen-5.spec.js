@@ -40,7 +40,6 @@ context('Escenario 5', () => {
   });
 
   it('Cerrar sesion', () => {
-    Base.closeNotification();
     Auth.logout();
   });
 

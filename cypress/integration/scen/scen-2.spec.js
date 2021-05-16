@@ -33,7 +33,6 @@ context('Escenario 2', () => {
   });
 
   it('Cerrar sesion', () => {
-    Base.closeNotification();
     Auth.logout();
   });
 

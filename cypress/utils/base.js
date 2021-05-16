@@ -16,8 +16,12 @@ export const Base = {
   },
 
   closeNotification: () => {
-    cy.get('button').get('.gh-notification-close').first().click();
-    cy.wait(500);
+    cy.get('body').then((body) => {
+      if (body.find('.gh-notification-close').length > 0) {
+        cy.get('button').get('.gh-notification-close').click({ multiple: true });
+        cy.wait(500);
+      }
+    });
   },
 
   visitUrl: (url) => {
