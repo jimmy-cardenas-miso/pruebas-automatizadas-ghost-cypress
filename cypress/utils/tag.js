@@ -35,7 +35,11 @@ export const Tag = {
   },
 
   shouldNotExist: (title) => {
-    cy.get('.gh-tag-list-name').contains(title).should('not.exist');
+    cy.get('body').then((body) => {
+      if (body.find('.gh-tag-list-name').length > 0) {
+        cy.get('.gh-tag-list-name').contains(title).should('not.exist');
+      }
+    });
   },
 
   deleteTag: () => {

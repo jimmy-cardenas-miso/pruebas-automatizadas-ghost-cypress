@@ -1,10 +1,14 @@
-import { Screenshot } from '../../utils/screenshot';
-import { sanitizeText } from '../../utils/utils';
-import { Base } from '../../utils/base';
-import { Auth } from '../../utils/auth';
-import { Tag } from '../../utils/tag';
+import {Screenshot} from '../../utils/screenshot';
+import {sanitizeText} from '../../utils/utils';
+import {Base} from '../../utils/base';
+import {Auth} from '../../utils/auth';
+import {Tag} from '../../utils/tag';
+import * as faker from "faker";
 
 const cookieSessionName = Cypress.env('cookieSessionName') || "ghost-admin-api-session";
+const title = faker.name.title();
+const slug = faker.lorem.slug();
+const paragraph = faker.lorem.paragraph();
 let tagName;
 let screenshot = new Screenshot('esc_12');
 
@@ -19,6 +23,13 @@ context('Escenario 12', () => {
 
   it('Iniciar sesión', () => {
     Auth.login();
+  });
+
+  it('Crear tag', () => {
+    Tag.clickTagsMenu();
+    Tag.clickNewTag();
+    Tag.fillData(title, slug, paragraph);
+    Base.baseUrl();
   });
 
   it('Abrir tag', () => {
@@ -39,7 +50,7 @@ context('Escenario 12', () => {
     Auth.login();
   });
 
-  it('Validar que el tag existe', () => {
+  it('Validar que el tag no existe', () => {
     Base.baseUrl();
     Tag.clickTagsMenu();
     Tag.shouldNotExist(tagName);
