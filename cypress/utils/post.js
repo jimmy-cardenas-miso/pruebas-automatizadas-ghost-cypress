@@ -96,6 +96,10 @@ export const Post = {
     cy.get('.post-card-title').contains(title).should('not.exist');
   },
 
+  shouldShowError: (error) => {
+    cy.get('.gh-alert-content').contains(error).should('contain', error);
+  },
+
   openFirstPublishedPost: () => {
     cy.get(".gh-post-list-title").get('.gh-content-status-published').contains('Published').first().click({force: true},);
     cy.wait(500);

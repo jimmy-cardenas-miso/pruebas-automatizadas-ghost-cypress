@@ -85,6 +85,10 @@ export const Page = {
     cy.get('.error-description').should('contain', 'Page not found');
   },
 
+  shouldShowError: (error) => {
+    cy.get('.gh-alert-content').contains(error).should('contain', error);
+  },
+
   openFirstPublishedPage: () => {
     cy.get('.gh-content-status-published').contains('Published').first().click({force: true},);
     cy.wait(500);
