@@ -67,7 +67,7 @@ export const SCEN_15_DATA = {
       bio: faker.lorem.paragraph(1)
     },
     {
-      name: faker.lorem.paragraph(10),
+      name: faker.lorem.paragraph(3),
       slug: 'slug',
       email: Cypress.env('auth').email,
       website: faker.internet.url(),
@@ -95,7 +95,7 @@ export const SCEN_15_DATA = {
       slug: 'slug',
       email: Cypress.env('auth').email,
       website: faker.internet.url(),
-      bio: faker.lorem.paragraph(10),
+      bio: faker.lorem.paragraph(4),
       error: 'Bio is too long'
     }
   ],
@@ -108,7 +108,7 @@ export const SCEN_15_DATA = {
       bio: faker.lorem.paragraph(1)
     },
     {
-      name: faker.lorem.paragraph(10),
+      name: faker.lorem.paragraph(3),
       slug: faker.lorem.slug(),
       email: Cypress.env('auth').email,
       website: faker.internet.url(),
@@ -136,7 +136,7 @@ export const SCEN_15_DATA = {
       slug: faker.lorem.slug(),
       email: Cypress.env('auth').email,
       website: faker.internet.url(),
-      bio: faker.lorem.paragraph(10),
+      bio: faker.lorem.paragraph(4),
       error: 'Bio is too long'
     }
   ]
