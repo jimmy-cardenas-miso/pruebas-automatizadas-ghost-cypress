@@ -59,23 +59,6 @@ Object.keys(SCEN_15_DATA).forEach((key) => {
           Auth.logout();
         });
 
-        it('Iniciar sesión', () => {
-          Auth.login();
-        });
-
-        it('Entrar a staff y propietario', () => {
-          Staff.clickStaffMenu();
-          Staff.clickOwner();
-        });
-
-        it('Validar que el nombre es correcto', () => {
-          Staff.checkUserName(name);
-        });
-
-        it('Cerrar sesion', () => {
-          Auth.logout();
-        });
-
         afterEach(() => {
           screenshot.takeScreenshot();
         });
