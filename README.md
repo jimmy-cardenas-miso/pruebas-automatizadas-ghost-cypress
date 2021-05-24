@@ -83,6 +83,54 @@ or
 }
 ```
 
+## Data pool
+
+Se realizaron pruebas en los diferentes formularios del aplicativo `Ghost` en su versión `v3.42.5` mediante la inyección de datos con 3 estrategias diferentes:
+
+I) A priori
+
+II) Pseudo aleatorios
+
+III) Aleatorios
+
+Los datos aleatorios se generaron mediante el uso de la librería `faker.js`. Para su implementación se creó un archivo `data-pool` que contiene los diferentes tipos de datos de cada escenario organizados en un objeto con 3 arreglos en `/data/scen-X.js` de la siguiente manera:
+
+```bash
+export const SCEN_X_DATA = {
+  'A priori': [
+    {
+      title: 'Titulo page',
+      paragraph: 'Descripcion valida',
+      ...
+    }
+  ],
+  'Pseudo aleatorio': [
+    {
+      title: 'Titulo page',
+      paragraph: faker.lorem.paragraph(),
+      ...
+    }
+  ],
+  'Aleatorio': [
+    {
+      title: faker.name.title(),
+      paragraph: faker.lorem.paragraph(),
+      ...
+    }
+  ]
+}
+```
+
+Cada arreglo contiene los diferentes escenarios que son inyectados dentro de los casos de prueba. Se crearon escenarios específicos con el prefijo `scen-X-data-pool.specs.js` para diferenciar los que usan data pool.
+
+Los escenarios con la estructura `scen-X-data-pool.specs.js` generan los casos de prueba dependiendo la fuente de datos de la siguiente manera (cypress gráfico):
+
+
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/78035057/119295020-6932ae00-bc1b-11eb-9c01-e90c39baa316.png"/>
+</p>
+
+
 ## Tests
 
 | Escenario | Descripción |

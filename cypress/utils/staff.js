@@ -19,6 +19,15 @@ export const Staff = {
     cy.get('button').get('.gh-btn-blue').click()
   },
 
+  editUserFields: (name, slug, email, website, bio) => {
+    if (name.length > 0) cy.get('#user-name').clear({force: true}).type(name);
+    if (slug.length > 0) cy.get('#user-slug').clear({force: true}).type(slug);
+    if (email.length > 0) cy.get('#user-email').clear({force: true}).type(email);
+    if (website.length > 0) cy.get('#user-website').clear({force: true}).type(website);
+    if (bio.length > 0) cy.get('#user-bio').clear({force: true}).type(bio);
+    cy.get('button').get('.gh-btn-blue').click()
+  },
+
   addNewEmail: (email) => {
     cy.get('#new-user-email').type(email);
     cy.get('.modal-footer .gh-btn-green').click()
@@ -38,6 +47,10 @@ export const Staff = {
 
   deleteFirstMember: () => {
     cy.get('.apps-configured-action').first().click();
+  },
+
+  shouldShowError: (error) => {
+    cy.get('.response').contains(error).should('contain', error);
   },
 
   getFirstMemberEmail: () => {
