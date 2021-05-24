@@ -95,7 +95,7 @@ export const SCEN_15_DATA = {
       slug: 'slug',
       email: Cypress.env('auth').email,
       website: faker.internet.url(),
-      bio: faker.lorem.paragraph(4),
+      bio: faker.lorem.paragraph(6),
       error: 'Bio is too long'
     }
   ],
@@ -136,7 +136,7 @@ export const SCEN_15_DATA = {
       slug: faker.lorem.slug(),
       email: Cypress.env('auth').email,
       website: faker.internet.url(),
-      bio: faker.lorem.paragraph(4),
+      bio: faker.lorem.paragraph(6),
       error: 'Bio is too long'
     }
   ]
