@@ -6,6 +6,7 @@
       "email": "pruebas@automatizadas.com",
       "password": "pruebas1234"
     },
-    "Ghost_version" : "v3.42.5"
+    "Ghost_version" : "v3.42.5",
+    "take_screenshot": false
   }
 }

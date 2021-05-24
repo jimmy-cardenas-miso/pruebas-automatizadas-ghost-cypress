@@ -10,9 +10,9 @@ export const Tag = {
   },
 
   fillData: (name, slug, description) => {
-    cy.get('#tag-name').type(name, {force: true})
-    cy.get('#tag-slug').type(slug, {force: true})
-    cy.get('#tag-description').type(description, {force: true})
+    if (name.length > 0) cy.get('#tag-name').type(name, {force: true})
+    if (slug.length > 0) cy.get('#tag-slug').type(slug, {force: true})
+    if (description.length > 0) cy.get('#tag-description').type(description, {force: true})
     cy.get('button').get('.gh-btn-blue').click()
   },
 
@@ -56,5 +56,9 @@ export const Tag = {
 
   openFirstTagName: () => {
     return cy.get('.gh-tag-list-title').first().invoke('text');
+  },
+
+  shouldShowError: (error) => {
+    cy.get('.response').contains(error).should('contain', error);
   },
 }

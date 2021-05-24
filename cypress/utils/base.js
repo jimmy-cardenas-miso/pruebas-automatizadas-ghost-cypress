@@ -24,6 +24,15 @@ export const Base = {
     });
   },
 
+  closeModalIfExists: () => {
+    cy.get('body').then((body) => {
+      if (body.find('.modal-footer').length > 0) {
+        cy.get('button').contains('Leave').click({ multiple: true });
+        cy.wait(500);
+      }
+    });
+  },
+
   visitUrl: (url) => {
     cy.visit(url, { failOnStatusCode: false });
     cy.wait(500);

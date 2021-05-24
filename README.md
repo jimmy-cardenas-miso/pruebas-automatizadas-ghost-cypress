@@ -45,7 +45,7 @@ npm install
     }
 }
 ```
-Ejemplo 
+Example 
 ```bash
 {
     "base_url": "http://localhost:2377",
@@ -66,6 +66,22 @@ npm run cypress:start
 ```
 
 3. Run any tests clicking scens
+
+## Enable screenshot
+Modify `take_screenshot` in `cypress.json`
+
+Example
+```bash
+{
+    "take_screenshot": true
+}
+```
+or
+```bash
+{
+    "take_screenshot": false
+}
+```
 
 ## Tests
 

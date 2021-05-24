@@ -16,6 +16,7 @@ export const Auth = {
     cy.wait(1000);
     cy.get('a').contains('Sign Out').click();
     cy.wait(500);
+    Base.closeModalIfExists();
     Base.init();
   }
 }
