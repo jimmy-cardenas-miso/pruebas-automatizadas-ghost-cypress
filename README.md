@@ -24,6 +24,8 @@
 
 [Repositorio Backstop](https://github.com/jimmy-cardenas-miso/pruebas-automatizadas-ghost-backstop)
 
+[Repositorio Cucumber](https://github.com/mauricio-corredor/pruebas-automatizadas-kraken-ghost/tree/main/Escenarios_cucumber)
+
 [Wiki Pros y Contras](https://github.com/mauricio-corredor/pruebas-automatizadas-kraken-ghost/wiki/Analisis-de-las-herramientas)
 
 
